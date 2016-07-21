@@ -1,0 +1,58 @@
+#include<stdio.h>
+
+void  caesarcapital (char cipher[], int shift);
+
+void  caesarsmall(char cipher[], int shift);
+
+int main(){
+
+char cipher[50], cipher2[50];
+int shift;
+
+  printf("Enter text to be encrypted IN CAPITAL LETTERS ONLY: ");
+  scanf("%s", cipher);
+
+  printf("How many shifts do you prefer? : ");
+  scanf("%d", &shift);
+
+  caesarcapital (cipher, shift);
+
+  printf("Enter text to be encrypted IN SMALL LETTERS ONLY: ");
+  scanf("%s", cipher2);
+
+  printf("How many shifts do you prefer? : ");
+  scanf("%d", &shift);
+
+ caesarsmall (cipher2, shift);
+
+  return 0;
+}
+
+void caesarcapital (char cipher[], int shift) {
+  int i = 0;
+
+  while (cipher[i] != '\0') {
+    if ((cipher[i] + shift) >= 65 && (cipher[i] + shift) <= 90) {
+      cipher[i] += (shift);
+    } else {
+      cipher[i] += (shift - 25); 
+    }
+    i++;
+  }
+  printf("%s", cipher);
+}
+
+void caesarsmall (char cipher[], int shift) {
+  int i = 0;
+
+  while (cipher[i] != '\0') {
+    if ((cipher[i] + shift) >= 97 && (cipher[i] + shift) <= 122) {
+      cipher[i] += (shift);
+    } else {
+      cipher[i] += (shift - 25); 
+    }
+    i++;
+} 
+
+ printf("%s", cipher);
+}
