@@ -1,0 +1,34 @@
+close all;
+clear all;
+
+img1 = imread('cameraman.tif');
+[row,cols]= size(img1);
+
+j = 1;
+
+for i=1:cols
+    img2(:,j) = img1(:,i);
+    img2(:,j+1) = img1(:,i); 
+    j = j+2;
+end
+
+figure(1)
+imshow(img1,[])
+title('My image');
+
+figure(2)
+imshow(img2,[])
+title('My image');
+
+k = 1;
+
+for i= 1:row
+
+    img3 (k,:) = img2(i,:);
+    img3 (k+1,:) = img2(i,:);
+    k = k+2;
+end
+
+figure(3)
+imshow(img3,[])
+title('My image');
